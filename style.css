@@ -83,6 +83,8 @@ section:nth-child(even){
     margin-left: 1rem;
 }
 
+/* navbar starts */
+
 .header{
     padding:2rem 9%;
     position: fixed;
@@ -120,6 +122,9 @@ section:nth-child(even){
     font-weight: 700;
 }
 
+
+
+
 #menu-btn{
     font-size: 2.5rem;
     border-radius: .5rem;
@@ -131,6 +136,7 @@ section:nth-child(even){
 }
 
 
+/* navber ends */
 
 
 

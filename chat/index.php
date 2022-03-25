@@ -12,12 +12,20 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<link rel="stylesheet" 
 	      href="css/style.css">
+
+		  
 	<link rel="icon" href="img/logo.png">
 </head>
 <body class="d-flex
              justify-content-center
              align-items-center
              vh-100">
+
+
+
+
+
+			 
 	 <div class="w-400 p-5 shadow rounded">
 	 	<form method="post" 
 	 	      action="app/http/auth.php">
