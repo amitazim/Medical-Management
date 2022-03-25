@@ -1,8 +1,8 @@
 
 .doctors .box-container{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-    gap:2rem;
+    grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+    gap:10rem;
 }
 
 .doctors .box-container .box{
@@ -15,31 +15,39 @@
 }
 
 .doctors .box-container .box img{
-    height: 20rem;
-    border:var(--border);
-    border-radius: .5rem;
+    height: 15rem;
+    
+    
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
-.doctors .box-container .box h3{
+.doctors .box-container .box h2{
     color:var(--black);
     font-size: 2rem;
+    margin: 5px;
 }
 
 .doctors .box-container .box span{
-    color:var(--green);
-    font-size: 1.5rem;
+    
+    font-size: 2rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    color: rgb(193, 18, 18);
+    margin: 5px;
+
+
 }
 
 .doctors .box-container .box .share{
     padding-top: 1rem;
+    color: rgb(22, 89, 24);
     
 }
 
-.doctors .box-container .box .share h4{
+.doctors .box-container .box .share h3{
    
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 
 
     

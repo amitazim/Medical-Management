@@ -23,12 +23,13 @@
         <img src="/image/logo_med.png" alt style="height: 75px; width: 90px;">
         <a href="" class="logo">Medical Center</a>
 
+
         <nav class="navbar">
             <a href="/index.html">home</a>
             <a href="/html/services.html">services</a>
             <a href="/html/about.html">about</a>
             <a href="/html/director.html">Notice</a>
-            <a href="/html/doctors.html">doctors</a>
+            <a href="/html/doctors.php">doctors</a>
             <a href="/html/staff.html">staff</a>
             <a href="http://localhost:3000/chat/index.php">Chat</a>
             <a href="http://localhost:3000/php/booking.php">booking</a>
@@ -51,105 +52,36 @@
 
         <div class="box-container">
 
-            <div class="box">
-                <img src="/image/Dr. Likhan Chandra.jpg" alt="">
-                <h3>DR. LIKHAN CHANDRA BALA</h3>
-                <span>Medical Officer(Part time)</span>
-                <div class="share">
-                    <h4>Email: likhan50@gmail.com</h4>
-                    <h4>Office Phone: 01741894934</h4>
-                    <h4>Home Phone: 01715221299</h4>
-                </div>
-            </div>
 
-            <div class="box">
-                <img src="/image/d2.jpg" alt="">
-                <h3>DR. ASMA SIDDIQA</h3>
-                <span>Medical Officer(Part time)</span>
-                <div class="share">
-                    <h4>Email: dr.elamoni@gmail.com</h4>
-                    <h4>Office Phone: 01741894934</h4>
-                    <h4>Home Phone: 01676463778</h4>
-                </div>
-            </div>
+            <?php
+            include 'db_conn.php';
 
-            <div class="box">
-                <img src="/image/default-img-person.jpg" alt="">
-                <h3>DR. MD. ROKONUGGAMAN</h3>
-                <span>Medical Officer(Part time)</span>
-                <div class="share">
-                    <h4>Email: drrokon2005@hotmail.com</h4>
-                    <h4>Office Phone: 01741894934</h4>
-                    <h4>Home Phone: 01711984597</h4>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="/image/d4..jpg" alt="">
-                <h3>DR. TOWHID HASSAN SHAH CHOWDHURY</h3>
-                <span>Senir Medical Officer</span>
-                <div class="share">
-                    <h4>Email: medicalju123@gmail.com</h4>
-                    <h4>Office Phone: ex-1225</h4>
-                    <h4>Home Phone: 01716238788</h4>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="/image/default-img-person.jpg" alt="">
-                <h3>DR. MAHABUBA JANNATH</h3>
-                <span>Senior Medical Officer</span>
-                <div class="share">
-                    <h4>Email: medicalju123@gmail.com</h4>
-                    <h4>Office Phone: ex-1227</h4>
-                    <h4>Home Phone: 01715067578</h4>
-                </div>
-            </div>
-
-            <div class="box">
-                <img src="/image/d6..jpg" alt="">
-                <h3>DR. BIRENDRO KUMAR BISWAS</h3>
-                <span>Senior Medical Officer</span>
-                <div class="share">
-                    <h4>Email: medicalju123@gmail.com</h4>
-                    <h4>Office Phone: EX-1392</h4>
-                    <h4>Home Phone: 01711017552</h4>
-                </div>
-            </div>
+            $sql = " SELECT * FROM doctor ";
+            $query = mysqli_query($conn, $sql);
+            while ($Patient_data = mysqli_fetch_array($query)) {
 
 
-            <div class="box">
-                <img src="/image/default-img-person.jpg" alt="">
-                <h3>DR.RIZWANUR RAHMAN</h3>
-                <span>Deputy Chief Medical Officer</span>
-                <div class="share">
-                    <h4>Email: medicalju123@gmail.com</h4>
-                    <h4>Office Phone: EX-1392</h4>
-                    <h4>Home Phone: 01923756892</h4>
-                </div>
-            </div>
+            ?>
 
-            <div class="box">
-                <img src="/image/d8.jpg" alt="">
-                <h3>DR. MD. SHAMSUL ALAM KHAN (LITON)</h3>
-                <span>Deputy Chief Medical Officer</span>
-                <div class="share">
-                    <h4>Email: medicalju123@gmail.com</h4>
-                    <h4>Office Phone: ex-1898</h4>
-                    <h4>Home Phone: 01712003979</h4>
-                </div>
-            </div>
 
-            <div class="box">
-                <img src="/image/default-img-person.jpg" alt="">
-                <h3>DR. MAMOTA MALLIKA</h3>
-                <span>Deputy Chief Medical Officer</span>
-                <div class="share">
-                    <h4>Email: medicalju123@gmail.com</h4>
-                    <h4>Office Phone: ex-1227</h4>
-                    <h4>Home Phone: 01552364420</h4>
+                <div class="box">
+                    <img src="/image/doctorlogo.png" alt="">
+                    <h2><?php echo $Patient_data['D_Name'];  ?></h2>
+                    <span><?php echo $Patient_data['Speciality'];  ?></span>
+                    <div class="share">
+                        <h3>Gender : <?php echo $Patient_data['Gender'];  ?></h3>
+                        <h3>Working : <?php echo $Patient_data['Work_Day'];  ?></h3>
+                    </div>
                 </div>
-            </div>
+
+
+            <?php
+
+            }
+
+            ?>
+
+            
 
         </div>
 

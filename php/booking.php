@@ -21,7 +21,7 @@
     <!-- header section starts  -->
 
     <header class="header">
-    <img src="/image/logo_med.png" alt style="height: 75px; width: 90px;">
+        <img src="/image/logo_med.png" alt style="height: 75px; width: 90px;">
         <a href="" class="logo">Medical Center</a>
 
 
@@ -30,7 +30,7 @@
             <a href="/html/services.html">services</a>
             <a href="/html/about.html">about</a>
             <a href="/html/director.html">Notice</a>
-            <a href="/html/doctors.html">doctors</a>
+            <a href="/html/doctors.php">doctors</a>
             <a href="/html/staff.html">staff</a>
             <a href="http://localhost:3000/chat/index.php">Chat</a>
             <a href="http://localhost:3000/php/booking.php">booking</a>
