@@ -28,10 +28,10 @@
         <nav class="navbar">
             <a href="/index.html">home</a>
             <a href="/html/services.html">services</a>
-            <a href="/html/about.html">about</a>
-            <a href="/html/director.html">Notice</a>
+            
+            <a href="/html/notice.html">Notice</a>
             <a href="/html/doctors.php">doctors</a>
-            <a href="/html/staff.html">staff</a>
+            
             <a href="http://localhost:3000/chat/index.php">Chat</a>
             <a href="http://localhost:3000/php/booking.php">booking</a>
             <a href="http://localhost:3000/php/index.php">login</a>
