@@ -23,12 +23,12 @@
         <nav class="navbar">
             <a href="/index.html">home</a>
             <a href="/html/services.html">services</a>
-            
+
             <a href="/html/notice.html">Notice</a>
-            <a href="/html/doctors.php">doctors</a>
-            
+            <a href="/html/doctors.php">Doctor</a>
+
             <a href="http://localhost:3000/chat/index.php">Chat</a>
-            <a href="http://localhost:3000/php/booking.php">booking</a>
+            <a href="/html/doctors.php">Appointment</a>
             <a href="http://localhost:3000/php/index.php">login</a>
             <a href="http://localhost:3000/php/signup.php">signup</a>
         </nav>

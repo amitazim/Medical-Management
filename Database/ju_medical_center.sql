@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 30, 2022 at 05:48 AM
--- Server version: 5.7.19
--- PHP Version: 5.6.31
+-- Generation Time: Mar 27, 2022 at 10:43 PM
+-- Server version: 8.0.27
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,9 +29,9 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `ambulence`;
 CREATE TABLE IF NOT EXISTS `ambulence` (
-  `Amb_ID` int(11) NOT NULL,
+  `Amb_ID` int NOT NULL,
   `Amb_Status` enum('Available','Not Available') NOT NULL,
-  `P_ID` int(11) DEFAULT NULL,
+  `P_ID` int DEFAULT NULL,
   PRIMARY KEY (`Amb_ID`),
   UNIQUE KEY `Amb_ID` (`Amb_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
@@ -56,10 +55,10 @@ INSERT INTO `ambulence` (`Amb_ID`, `Amb_Status`, `P_ID`) VALUES
 
 DROP TABLE IF EXISTS `bed`;
 CREATE TABLE IF NOT EXISTS `bed` (
-  `Bed_Num` int(11) NOT NULL,
+  `Bed_Num` int NOT NULL,
   `Date` date NOT NULL,
   `Bed_Status` enum('Available','Not Available') NOT NULL,
-  `P_ID` int(11) DEFAULT NULL,
+  `P_ID` int DEFAULT NULL,
   PRIMARY KEY (`Bed_Num`),
   UNIQUE KEY `Bed_Num` (`Bed_Num`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -84,11 +83,12 @@ INSERT INTO `bed` (`Bed_Num`, `Date`, `Bed_Status`, `P_ID`) VALUES
 
 DROP TABLE IF EXISTS `doctor`;
 CREATE TABLE IF NOT EXISTS `doctor` (
-  `D_ID` int(11) NOT NULL,
+  `D_ID` int NOT NULL,
   `D_Name` varchar(225) NOT NULL,
   `Gender` enum('Male','Female','Others') NOT NULL,
   `Work_Day` date NOT NULL,
   `Speciality` varchar(225) NOT NULL,
+  `email` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`D_ID`),
   UNIQUE KEY `D_ID` (`D_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -97,16 +97,10 @@ CREATE TABLE IF NOT EXISTS `doctor` (
 -- Dumping data for table `doctor`
 --
 
-INSERT INTO `doctor` (`D_ID`, `D_Name`, `Gender`, `Work_Day`, `Speciality`) VALUES
-(1, 'DR. LIKHAN CHANDRA BALA', 'Male', '2022-01-29', 'Cardiologists'),
-(2, 'DR. ASMA SIDDIQA', 'Female', '2022-01-30', 'Pathologists'),
-(3, 'DR. MD. ROKONUGGAMAN', 'Male', '2022-01-29', 'Podiatrists'),
-(4, 'DR. TOWHID HASSAN SHAH CHOWDHURY', 'Male', '2022-01-30', 'Urologists'),
-(5, 'DR. MAHABUBA JANNATH', 'Female', '2022-01-30', 'Eye Specialist'),
-(6, 'DR. BIRENDRO KUMAR BISWAS', 'Male', '2022-01-29', 'Urologists'),
-(7, 'DR.RIZWANUR RAHMAN', 'Male', '2022-01-29', 'Anaesthetists'),
-(8, 'DR. MD. SHAMSUL ALAM KHAN', 'Male', '2022-01-30', 'Critical Care Medicine Specialists'),
-(9, 'DR. MAMOTA MALLIKA', 'Female', '2022-01-30', 'Child Specialist');
+INSERT INTO `doctor` (`D_ID`, `D_Name`, `Gender`, `Work_Day`, `Speciality`, `email`) VALUES
+(1, 'DR Amit Azim', 'Male', '2022-01-29', 'Cardiologist', 'amitazim@example.com'),
+(2, 'DR. Samiha Tahsin', 'Female', '2022-01-30', 'Pathologist', 'samihatahsin@example.com'),
+(3, 'DR M Rana', 'Male', '2022-01-29', 'Podiatrist', 'mrana@example.com');
 
 -- --------------------------------------------------------
 
@@ -116,8 +110,8 @@ INSERT INTO `doctor` (`D_ID`, `D_Name`, `Gender`, `Work_Day`, `Speciality`) VALU
 
 DROP TABLE IF EXISTS `doc_patient`;
 CREATE TABLE IF NOT EXISTS `doc_patient` (
-  `D_ID` int(11) NOT NULL,
-  `P_ID` int(11) NOT NULL,
+  `D_ID` int NOT NULL,
+  `P_ID` int NOT NULL,
   PRIMARY KEY (`D_ID`),
   UNIQUE KEY `D_ID` (`D_ID`),
   UNIQUE KEY `P_ID` (`P_ID`)
@@ -131,8 +125,8 @@ CREATE TABLE IF NOT EXISTS `doc_patient` (
 
 DROP TABLE IF EXISTS `doc_staff`;
 CREATE TABLE IF NOT EXISTS `doc_staff` (
-  `D_ID` int(11) NOT NULL,
-  `S_ID` int(11) NOT NULL,
+  `D_ID` int NOT NULL,
+  `S_ID` int NOT NULL,
   PRIMARY KEY (`D_ID`),
   UNIQUE KEY `D_ID` (`D_ID`),
   UNIQUE KEY `S_ID` (`S_ID`)
@@ -146,9 +140,9 @@ CREATE TABLE IF NOT EXISTS `doc_staff` (
 
 DROP TABLE IF EXISTS `medicine`;
 CREATE TABLE IF NOT EXISTS `medicine` (
-  `M_Code` int(11) NOT NULL,
+  `M_Code` int NOT NULL,
   `M_Name` varchar(225) NOT NULL,
-  `Quantity` int(11) NOT NULL,
+  `Quantity` int NOT NULL,
   PRIMARY KEY (`M_Code`),
   UNIQUE KEY `M_Code` (`M_Code`),
   UNIQUE KEY `M_Name` (`M_Name`)
@@ -175,26 +169,28 @@ INSERT INTO `medicine` (`M_Code`, `M_Name`, `Quantity`) VALUES
 
 DROP TABLE IF EXISTS `patient`;
 CREATE TABLE IF NOT EXISTS `patient` (
-  `P_ID` int(11) NOT NULL,
+  `P_ID` int NOT NULL AUTO_INCREMENT,
   `P_Name` varchar(225) NOT NULL,
   `Gender` enum('Male','Female','Others') NOT NULL,
-  `Age` int(11) NOT NULL,
+  `Age` int NOT NULL,
   `P_Type` varchar(225) NOT NULL,
   `A_Date` date NOT NULL,
+  `D_ID` int DEFAULT NULL,
   PRIMARY KEY (`P_ID`),
   UNIQUE KEY `P_ID` (`P_ID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`P_ID`, `P_Name`, `Gender`, `Age`, `P_Type`, `A_Date`) VALUES
-(2, 'Amit Azim', 'Male', 28, 'Staff', '2022-01-27'),
-(1, 'Maruf Ahmed', 'Male', 22, 'Student', '2022-01-30'),
-(3, 'Sumaiya Siddika', 'Female', 30, 'Teacher', '2022-01-27'),
-(4, 'Ashfaqur Tokee', 'Male', 33, 'Teacher', '2022-01-30'),
-(5, 'Shariful Islam', 'Male', 22, 'Student', '2022-01-24');
+INSERT INTO `patient` (`P_ID`, `P_Name`, `Gender`, `Age`, `P_Type`, `A_Date`, `D_ID`) VALUES
+(14, 'Manir hossain', 'Male', 24, 'Staff', '2022-04-01', 3),
+(13, 'Shariful Islam', 'Male', 23, 'Student', '2022-03-30', 1),
+(12, 'Sumaiya Siddika', 'Female', 21, 'Teacher', '2022-03-29', 2),
+(11, 'Shakil hossen', 'Male', 22, 'Student', '2022-03-28', 1),
+(15, 'AR Tokee', 'Male', 22, 'Student', '2022-03-31', 2),
+(16, 'Tajul Islam', 'Male', 25, 'Student', '2022-03-28', 3);
 
 -- --------------------------------------------------------
 
@@ -204,8 +200,8 @@ INSERT INTO `patient` (`P_ID`, `P_Name`, `Gender`, `Age`, `P_Type`, `A_Date`) VA
 
 DROP TABLE IF EXISTS `patient_recieves`;
 CREATE TABLE IF NOT EXISTS `patient_recieves` (
-  `P_ID` int(11) NOT NULL,
-  `M_Code` int(11) NOT NULL,
+  `P_ID` int NOT NULL,
+  `M_Code` int NOT NULL,
   PRIMARY KEY (`P_ID`),
   UNIQUE KEY `P_ID` (`P_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -218,8 +214,8 @@ CREATE TABLE IF NOT EXISTS `patient_recieves` (
 
 DROP TABLE IF EXISTS `patient_takes_test`;
 CREATE TABLE IF NOT EXISTS `patient_takes_test` (
-  `P_ID` int(11) NOT NULL,
-  `T_ID` int(11) NOT NULL,
+  `P_ID` int NOT NULL,
+  `T_ID` int NOT NULL,
   PRIMARY KEY (`P_ID`),
   UNIQUE KEY `P_ID` (`P_ID`),
   UNIQUE KEY `T_ID` (`T_ID`)
@@ -233,11 +229,11 @@ CREATE TABLE IF NOT EXISTS `patient_takes_test` (
 
 DROP TABLE IF EXISTS `staff`;
 CREATE TABLE IF NOT EXISTS `staff` (
-  `S_ID` int(11) NOT NULL,
+  `S_ID` int NOT NULL,
   `S_Name` varchar(225) NOT NULL,
   `Gender` enum('Male','Female','Others') NOT NULL,
   `Work_Day` date NOT NULL,
-  `T_ID` int(11) DEFAULT NULL,
+  `T_ID` int DEFAULT NULL,
   PRIMARY KEY (`S_ID`),
   UNIQUE KEY `S_ID` (`S_ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
@@ -261,9 +257,9 @@ INSERT INTO `staff` (`S_ID`, `S_Name`, `Gender`, `Work_Day`, `T_ID`) VALUES
 
 DROP TABLE IF EXISTS `test`;
 CREATE TABLE IF NOT EXISTS `test` (
-  `T_ID` int(11) NOT NULL,
+  `T_ID` int NOT NULL,
   `T_Name` varchar(255) NOT NULL,
-  `T_Price` int(11) NOT NULL,
+  `T_Price` int NOT NULL,
   PRIMARY KEY (`T_ID`),
   UNIQUE KEY `T_ID` (`T_ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -288,22 +284,21 @@ INSERT INTO `test` (`T_ID`, `T_Name`, `T_Price`) VALUES
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `user_name`, `password`, `name`) VALUES
-(4, 'shakil', 'fbf832bc8d7e746434993cec0061a682', 'Md. Shakil Hossain'),
-(5, 'tokee', 'e72b6570017e99a7c63f473c62f7c149', 'Asfakur Rahman Tokee'),
-(6, 'sharif', '585a097e7ec1f2ba93c7d066d6f7fc5e', 'Md. Shariful Islam'),
-(7, 'amit', '0cb1eb413b8f7cee17701a37a1d74dc3', 'Amit Azim Amit');
+(9, 'tokee', 'e72b6570017e99a7c63f473c62f7c149', 'Ashfaqur Rahman Tokee'),
+(10, 'amit', '0cb1eb413b8f7cee17701a37a1d74dc3', 'Amit Azim Amit'),
+(11, 'masud', '266742ad7c319c03dac609047486ddcc', 'Masud Rana');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,14 +1,21 @@
 <?php
 $Gender = isset($_POST['Gender']) ? $_POST['Gender'] : '';
 include_once 'db_conn.php';
-if (count($_POST) > 0) {
 
-  mysqli_query($conn, "UPDATE patient set P_ID='" . $_POST['P_ID'] . "', P_Name='" . $_POST['P_Name'] . "' ,Age='" . $_POST['Age'] . "',P_Type='" . $_POST['P_Type'] . "' ,A_Date='" . $_POST['A_Date'] . "' WHERE P_ID='" . $_POST['P_ID'] . "'");
-}
+
+
+
+
+
 $query = mysqli_query($conn, "SELECT * FROM patient WHERE P_ID='" . $_GET['P_ID'] . "'");
 $Patient_data = mysqli_fetch_array($query);
 
+$query1 = mysqli_query($conn, "SELECT * FROM doctor WHERE D_ID='" . $Patient_data['D_ID'] . "'");
+$dname = mysqli_fetch_array($query1);
 
+ $dname['D_Name'];
+
+ 
 
 ?>
 
@@ -159,6 +166,12 @@ $Patient_data = mysqli_fetch_array($query);
     <br><br><br><br><br>
     <form action="pdf.php" method="POST">
       <table border="0" bgcolor="black" align="center" cellspacing="20">
+
+
+      <tr>
+          <td>Doctor Name</td>
+          <td><input type="text" placeholder="doctor" name="doctor" value="<?php echo $dname['D_Name']; ?>"></td>
+        </tr>
 
         <tr>
           <td>ID</td>

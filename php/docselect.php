@@ -29,10 +29,10 @@
             <a href="/html/services.html">services</a>
 
             <a href="/html/notice.html">Notice</a>
-            <a href="/html/doctors.php">Doctor</a>
+            <a href="/html/doctors.php">doctors</a>
 
             <a href="http://localhost:3000/chat/index.php">Chat</a>
-            <a href="/html/doctors.php">Appointment</a>
+            <a href="http://localhost:3000/php/booking.php">booking</a>
             <a href="http://localhost:3000/php/index.php">login</a>
             <a href="http://localhost:3000/php/signup.php">signup</a>
         </nav>
@@ -72,10 +72,10 @@
                         <span><?php echo $Patient_data['Speciality'];  ?></span>
                         <div class="share">
                             <h3>Gender : <?php echo $Patient_data['Gender'];  ?></h3>
-                            <h3>Email : <?php echo $Patient_data['email'];  ?></h3>
+                            <h3>Working : <?php echo $Patient_data['Work_Day'];  ?></h3>
                         </div>
 
-                        <button class="tabbutton" ><a href="/php/booking.php?D_ID=<?php echo $Patient_data['D_ID']; ?>" class="btn btn-danger"><b>BOOK</b></a></button>
+                        <button class="tabbutton" ><a href="booking.php?D_ID=<?php echo $Patient_data['D_ID']; ?>" class="btn btn-danger"><b>BOOK</b></a></button>
 
 
                     </div>
@@ -106,19 +106,19 @@
 
             <div class="box">
                 <h3>quick links</h3>
-                <a href="/index.html"> <i class="fas fa-chevron-right"></i> home </a>
-                <a href="services.html"> <i class="fas fa-chevron-right"></i> services </a>
+                <a href="index.html"> <i class="fas fa-chevron-right"></i> home </a>
+                <a href="html/services.html"> <i class="fas fa-chevron-right"></i> services </a>
                 <!-- <a href="#"> <i class="fas fa-chevron-right"></i> about </a> -->
-                <a href="#"> <i class="fas fa-chevron-right"></i> doctors </a>
-                <a href="#"> <i class="fas fa-chevron-right"></i> booking </a>
+                <a href="html/doctors.php"> <i class="fas fa-chevron-right"></i> doctors </a>
+                <a href="http://localhost:3000/php/booking.php"> <i class="fas fa-chevron-right"></i> booking </a>
             </div>
 
             <div class="box">
                 <h3>our services</h3>
-                <a href="services.html"> <i class="fas fa-chevron-right"></i> Free Checkups </a>
-                <a href="services.html"> <i class="fas fa-chevron-right"></i> 24/7 Ambulance </a>
-                <a href="services.html"> <i class="fas fa-chevron-right"></i> Medicines </a>
-                <a href="services.html"> <i class="fas fa-chevron-right"></i> Bed Facility </a>
+                <a href="/html/services.html"> <i class="fas fa-chevron-right"></i> Free Checkups </a>
+                <a href="/html/services.html"> <i class="fas fa-chevron-right"></i> 24/7 Ambulance </a>
+                <a href="/html/services.html"> <i class="fas fa-chevron-right"></i> Medicines </a>
+                <a href="/html/services.html"> <i class="fas fa-chevron-right"></i> Bed Facility </a>
             </div>
 
             <div class="box">
@@ -126,8 +126,7 @@
                 <a href="#"> <i class="fas fa-phone"></i> 1324 </a>
 
                 <a href="#"> <i class="fas fa-envelope"></i> medicalcenter@example.com </a>
-                <a href="https://goo.gl/maps/gCv8rquk261n7FnXA"> <i class="fas fa-map-marker-alt"></i> Jahangirnagar
-                    University, Savar, Dhaka-1342, Bangladesh. </a>
+                <a href="https://goo.gl/maps/gCv8rquk261n7FnXA"> <i class="fas fa-map-marker-alt"></i> Jahangirnagar University, Savar, Dhaka-1342, Bangladesh. </a>
             </div>
 
             <div class="box">

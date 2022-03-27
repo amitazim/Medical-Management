@@ -1,3 +1,16 @@
+
+<?php
+
+include_once 'db_conn.php';
+
+$query = mysqli_query($conn, "SELECT * FROM doctor WHERE D_ID='" . $_GET['D_ID'] . "'");
+$Patient_data = mysqli_fetch_array($query);
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -145,9 +158,7 @@
             DOCTOR
         </header>
         <ul>
-            <li>
-                <a href="/php/prescription/patient.php"> PRESCRIPTION</a>
-            </li>
+            
             <li>
                 <a href="/php/home.php"><i class="fas fa-home"></i> ADMIN</a>
             </li>
@@ -185,7 +196,7 @@
 
         <div class="row">
             <div style="margin-left: 50%; margin-top: 5%;">
-                <h2>PRESCRIPTION</h2>
+                <h2> <?php echo $Patient_data['D_Name'];  ?> </h2>
             </div>
             
         </div>
@@ -219,9 +230,9 @@
                 <tbody>
                     <?php
                     include 'db_conn.php';
+                    $d_id = $Patient_data['D_ID'];
 
-
-                    $sql = " SELECT * FROM patient LIMIT 5";
+                    $sql = " SELECT * FROM patient where D_ID ='".$d_id."'";
                     $query = mysqli_query($conn, $sql);
                     while ($Patient_data = mysqli_fetch_array($query)) {
 

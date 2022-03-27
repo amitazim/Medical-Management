@@ -189,10 +189,7 @@
                     <a href="/php/medicine/medicine.php"><i class="fas fa-medkit"></i> Medicine</a>
                </li>
 
-               <li>
-                    <a href="/php/prescription/patient.php"> PRESCRIPTION</a>
-               </li>
-
+               
                
 
                
