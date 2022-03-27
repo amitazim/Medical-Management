@@ -6,8 +6,7 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Ju Medical Center</title>
-     <link rel="shortcut icon" href="https://juniv.edu/images/favicon.ico">
+     <title>Medical Center</title>
      <!-- fonts -->
      <link rel="preconnect" href="https://fonts.googleapis.com">
      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,8 +190,12 @@
                </li>
 
                <li>
-                    <a href="http://localhost:3000/Prescription/form.php"><i class="fal fa-clipboard"></i>Prescription</a>
+                    <a href="/php/prescription/patient.php"> PRESCRIPTION</a>
                </li>
+
+               
+
+               
           </ul>
 
           <!-- logoutbutton -->
@@ -286,6 +289,7 @@
                               $result = mysqli_query($conn, $sql);
                               $data = mysqli_fetch_assoc($result);
                               echo $data['total'];
+                              
                               ?>
                          </div>
                     </div>

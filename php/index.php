@@ -2,8 +2,7 @@
 <html>
 
 <head>
-	<title>Ju Medical Center</title>
-	<link rel="shortcut icon" href="https://juniv.edu/images/favicon.ico">
+<title>Medical Center</title>
 	<!-- font awesome cdn link  -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/php-style.css">

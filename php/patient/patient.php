@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>Ju Medical Center</title>
-    <link rel="shortcut icon" href="https://juniv.edu/images/favicon.ico">
-    <!-- fonts -->
+<title>Medical Center</title>
+
+<!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">

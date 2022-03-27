@@ -14,6 +14,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	$uname = validate($_POST['uname']);
 	$pass = validate($_POST['password']);
 
+
 	if (empty($uname)) {
 		header("Location: index.php?error=Username is required");
 	    exit();
@@ -27,6 +28,9 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
         
 		$sql = "SELECT * FROM users WHERE user_name='$uname' AND password='$pass'";
 
+
+		
+
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) === 1) {
@@ -35,7 +39,8 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	$_SESSION['user_name'] = $row['user_name'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['id'];
-            	header("Location: home.php");
+
+            	header("Location: prescription/patient.php");
 		        exit();
             }else{
 				header("Location: index.php?error=Incorect Username or password");
