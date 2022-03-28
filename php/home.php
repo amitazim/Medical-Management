@@ -225,7 +225,7 @@
      <div class="mainpart">
 
           <div class="infocard">
-               <h1>JU Medical Center</h1>
+               <h1>Medical Center</h1>
 
                <a href="/php/Doctor/doctor.php" rel="">
                     <div class="cardspecific" style="width: 26%;">
